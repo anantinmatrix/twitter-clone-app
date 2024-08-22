@@ -1,5 +1,5 @@
 import express from 'express'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import upload from '../multer/multer.js';
 import { v2 as cloudinary } from 'cloudinary'
