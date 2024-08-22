@@ -1,0 +1,29 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+input{
+  font-size: large;
+}
+label{
+  font-size: large;
+}
+.textInputSharpLight{
+  padding: 3px 5px;
+  border: none;
+  border-bottom: 1px solid #e6e6e6;
+  background-color: rgba(255, 255, 255, 0);
+  outline: none;
+}
+.textInputSharpDark{
+  padding: 3px 5px;
+  border: none;
+  border-bottom: 1px solid #3e3e3e;
+  background-color: rgba(52, 52, 52, 0);
+  outline: none;
+}
+.body{
+  background-color: #222;
+}

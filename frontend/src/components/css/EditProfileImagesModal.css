@@ -1,0 +1,74 @@
+#editImageModal{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left:0;
+    backdrop-filter: blur(3px) brightness(70%);
+    
+}
+#editImageModal .editImageBody{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    min-width: 380px;
+    min-height: 400px;
+    height: 500px;
+    background-color: #383838;
+    padding: 25px;
+    border-radius: 8px;
+    transition: all .3s ease;
+    opacity: 1;
+}
+#editImage, #editCoverImage{
+    display: none;
+}
+
+.editImageBody .editImageForm{
+    height: 90%;
+    width: 100%;
+}
+.editImageBody .editImageForm form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+.editImageBody form label{
+    height: 50%;
+    width: 100%;
+}
+.editImageLabel{
+    height: 100% !important;
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background-color: rgba(95, 95, 95, 0.445);
+    border-radius: 5px;
+    transition: all .3s ease;
+}
+.editImageLabel:hover{
+    background-color: rgba(95, 95, 95, 0.9);
+}
+.editImageBody form .buttonGroup{
+    display: flex;
+    justify-content: end;
+    gap: 15px;
+}
+.formImagePreview{
+    height: 50%;
+    width: 100%;
+
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+}

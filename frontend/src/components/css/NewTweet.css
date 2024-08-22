@@ -1,0 +1,108 @@
+#newTweet{
+    background-color: #222;
+    padding: 24px;
+    border-radius: 16px;
+}
+.tweetProfileImg .profileImg{
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+.tweetContainer{
+    display: flex;
+    gap: 20px;
+}
+.tweetBody{
+    width: 80%;
+}
+.tweetContainer .tweetBody .upperSection{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.fa-ellipsis{
+    scale: 1.2;
+}
+#tweetOptions{
+    border: none;
+    background-color: transparent;
+}
+.optionsDropdown{
+    position: relative;
+}
+.dropdownMenu{
+    background-color: #383838;
+    padding: 5px 0;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    transform: translateX(-75%);
+    border-radius: 8px;
+
+    ul{
+        list-style: none;
+        width: 120px;
+        margin: 0;
+        padding: 4px 4px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        li{
+            text-align: center;
+            padding: 8px 0;
+            margin: auto;
+            width: 100%;
+            border-radius: 5px;
+        }
+        li:hover{
+            background-color: #444;
+            cursor: pointer;
+        }
+    }
+}
+.hide{
+    display: none;
+}
+.postSection{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.postSection .postMedia img{
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.postFunctions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.postFunctions .functions-1{
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.replyingToText{
+    color: grey;
+
+    a{
+        color: rgb(0, 94, 255);
+        font-style: italic;
+    }
+}
+#newTweet{
+    .like{
+        transition: all .3s ease-in-out;
+    }
+    .like:hover{
+        color: red;
+    }
+    .liked{
+        color: red;
+    }
+}

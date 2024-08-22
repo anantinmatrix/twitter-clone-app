@@ -1,0 +1,109 @@
+#home{
+    width: 100%;
+
+    > div{
+        width: 100%;
+    }
+}
+#homefeeds {
+    color: black;
+}
+
+#homefeedPages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#homefeedPages > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #ffffff2b;
+
+
+    color: white;
+
+    >h6 {
+        margin: 0;
+    }
+}
+
+
+#addThoughtForm {
+    display: flex;
+    /* gap: 10px; */
+    justify-content: space-between;
+    width: 100%;
+    padding: 24px;
+    background-color: #222;
+    border-radius: 16px;
+
+    .pt-1{
+        width: 100%;
+    }
+
+    .image {
+        img {
+            height: 40px;
+            width: 40px;
+            object-fit: cover;
+            border-radius: 100%;
+        }
+    }
+
+    .feedUsername {
+        color: #FFF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+
+
+    }
+}
+
+.addThoughtInput {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.549);
+    /* width: 508px; */
+    width: 100%;
+    resize: none;
+    font-size: 20px;
+    font-weight: 500;
+    outline: none;
+    color: white;
+    height: 50px;
+    overflow: hidden;
+    padding-bottom: -10px;
+}
+
+#addThoughtForm form {
+    /* width: 508px; */
+    width: 100%;
+
+    .postingElements {
+        >div>span>button {
+            scale: 1.25;
+        }
+    }
+}
+
+.postBtn{
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 20px;
+    border: none;
+    outline: none;
+    border-radius:8px ;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+
+}
+

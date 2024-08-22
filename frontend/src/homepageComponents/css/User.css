@@ -1,0 +1,17 @@
+#profileImgSection .followBtn{
+    button{
+        height: 40px;
+        padding: 0 10px;
+        background-color: #222;
+        opacity: .7;
+        color: white;
+        position: absolute;
+        bottom: 8px;
+        right: 10px;
+        transition: all .4s ease;
+    }
+
+    button:hover{
+        opacity: 1;
+    }
+}

@@ -1,0 +1,47 @@
+#retweetModal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(2px) brightness(50%);
+    z-index: 10000;
+}
+.retweetModalBody{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: white;
+    min-height: 400px;
+    width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #383838;
+
+}
+.originalTweetBody{
+    border: 1px solid grey;
+    background-color: #222;
+}
+.retweetQuote{
+    width: 100%;
+
+    form{
+        width: 100%;
+
+
+        textarea{
+            height: 35px;
+            min-height: 35px;
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.212);
+            color: rgb(255, 255, 255);
+            resize: none;
+            scrollbar-width: none;
+            outline: none;
+        }
+    }
+}

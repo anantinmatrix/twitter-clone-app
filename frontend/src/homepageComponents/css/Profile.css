@@ -1,0 +1,128 @@
+.backBtn{
+    cursor: pointer;
+}
+
+.profileLoader{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    width: 100px;
+    scale: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#profileImgSection{
+    position: relative;
+    width: 100%;
+    height: 250px;
+    
+
+    .coverImg{
+        width: 100%;
+        height: 250px;
+        position: relative;
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
+
+        .username{
+            position: absolute;
+            bottom: 35px;
+            left: 130px;
+        }
+
+        .editCoverImageBtn{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            background-color: #38383879;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 8px;
+            
+            
+        }
+
+        .editUserProfile{
+            position: absolute;
+            bottom: 40px;
+            right: 10px;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: rgb(34, 34, 34, .5);
+            /* opacity: .7; */
+            color: white;
+            transition: all .3s ease;
+        }
+        .editUserProfile:hover{
+            background-color: rgb(34,34,34,.9);
+        }
+
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(80%);
+
+        }
+    }
+    .profileImg{
+        width: 100px;
+        min-width: 80px;
+        height: 100px;
+        min-height: 80px;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+
+        img{
+            height: 100%;
+            width: 100%;
+            border-radius: 200px;
+            object-fit: cover;
+        }
+        .editProfileImageBtn{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            color: white;
+            background-color: #38383879;
+            border: none;
+            border-radius: 5px;
+            padding: 2px 5px;
+        }
+    }
+}
+#userProfileSections{
+    height: 50px;
+    width: 100%;
+    background-color: #383838;
+    padding-left: 8rem;
+    padding-right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-between;
+    border-radius: 0 0 8px 8px;
+    flex-basis: 1 auto;
+    /* margin-top: 20px; */
+    margin-bottom: 20px;
+}
+#userProfileSections .userProfileSection{
+    cursor: pointer;
+}
+#userFollowers, #userFollowings{
+    background-color: #383838;
+    border-radius: 8px;
+    padding: 8px;
+}
+#userProfileBody{
+    margin-top: 20px;
+}

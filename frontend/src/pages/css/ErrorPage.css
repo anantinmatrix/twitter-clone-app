@@ -1,0 +1,60 @@
+#errorPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    padding:6rem;
+    background-color: black;
+    color: white;
+}
+#errorPage #leftSection{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .errorText{
+        margin-bottom: 20px;
+    }
+    
+    h1{
+        font-size: 80px;
+        font-weight: bold;
+    }
+    h2{
+        font-size: 40px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    h6{
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.72);
+    }
+
+    button{
+        background: 
+        linear-gradient(#000000ff, #000000) padding-box,
+        linear-gradient(60deg, #6DDCFF, #7F60F9) border-box;
+      color: #ffffff;
+      padding: .4em .8em;
+      border: 2px solid transparent;
+      border-radius: 40px;
+      display: inline-block;
+
+    }
+
+}
+
+#errorPage #rightSection{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img{
+        filter: drop-shadow(0px 0 5px white);
+    }
+}
+

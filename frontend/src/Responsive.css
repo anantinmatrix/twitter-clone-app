@@ -1,0 +1,226 @@
+/* Screen size less than 1470px*/
+@media (max-width: 1470px) {
+    #homepage {
+        padding-right: 150px;
+    }
+
+    #homepage #navigationBar {
+        width: 250px;
+        left: 15vw;
+    }
+
+}
+
+/* Screen size less than 1360px */
+@media (max-width: 1360px) {
+    #homepage {
+        padding-right: 100px;
+    }
+
+    #homepage #navigationBar {
+        width: 250px;
+        left: 10vw;
+    }
+
+
+}
+
+/* Screen size less than 1190px */
+@media (max-width: 1190px) {
+    #homepage {
+        padding-right: 100px;
+    }
+
+    #homepage #navigationBar {
+        width: 250px;
+        left: 5vw;
+    }
+
+    .loginPage {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .registerPage {
+        padding: 0 !important;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loginImgSection {
+        display: none;
+    }
+
+    .registerBody .imgSection {
+        display: none;
+    }
+
+    .registerBody {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loginBody {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .formSectionBox {
+        padding: 0 !important;
+    }
+
+}
+
+/* Screen size less than 1060px */
+@media (max-width: 1060px) {
+    #homepage #navigationBar {
+        width: 250px;
+        left: 2vw;
+    }
+
+}
+
+/* Screen size less than 990px */
+@media (max-width: 990px) {
+    #homepage {
+        padding-right: 100px;
+    }
+
+    #homepage #navigationBar {
+        width: 80px;
+        left: 1vw;
+    }
+
+    #iconList {
+        ul a li p {
+            display: none;
+        }
+    }
+
+    #navigationUtility {
+        ul a li p {
+            display: none;
+        }
+    }
+
+    #homepageData {
+        width: 550px;
+        margin-left: 150px;
+    }
+    #deleteModal .deleteModalBody{
+        width: 50vw;
+        height: fit-content;
+    }
+
+}
+
+/* Screen width less than 730px */
+@media (max-width: 730px) {
+    #homepage {
+        padding-right: 0;
+    }
+
+    #homepageData {
+        margin-left: 50px !important;
+        width: 500px !important;
+    }
+}
+
+/* Screen width less than 650px */
+@media (max-width: 650px) {
+    #homepage {
+        padding-right: 0;
+    }
+
+    #homepage #navigationBar {
+        display: none !important;
+    }
+
+    #homepageData {
+        width: 500px !important;
+        margin: auto !important;
+        padding: 0 2px;
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    #mobileNavigationBar {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #a5a5a57e;
+        backdrop-filter: blur(20px);
+        z-index: 10000;
+
+        ul {
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+    }
+
+    .formSectionBox {
+        padding: 0 !important;
+        width: 100%;
+
+
+        >div,
+        p,
+        button {
+            width: 100%;
+        }
+
+        .inputPasswordSpan {
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                width: 24px !important;
+
+            }
+        }
+
+    }
+
+    #replyModal {
+        width: 90vw;
+    }
+    #deleteModal .deleteModalBody{
+        width: 90vw;
+        height: fit-content;
+    }
+}
+
+@media (max-width: 450px) {
+    #homepageData {
+        width: 100vw !important;
+        margin: auto !important;
+        padding: 0 2px;
+        padding-top: 20px;
+        padding-bottom: 45px;
+    }
+    .retweetModalBody{
+        width: 90vw;
+        min-height: 50vh;
+    }
+    #deleteModal .deleteModalBody{
+        width: 90vw;
+        height: fit-content;
+    }
+}
+
+@media (min-width:650px) {
+    #mobileNavigationBar {
+        display: none;
+    }
+
+
+}

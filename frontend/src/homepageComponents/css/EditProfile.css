@@ -1,0 +1,110 @@
+#editProfile .options li {
+    transition: all .2s ease;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: default;
+
+    p {
+        margin: 0;
+    }
+}
+
+/* #editProfile .options li:hover{
+    background-color: #383838;
+} */
+details {
+    transition: all .3s ease;
+    padding: 5px 8px;
+    border-radius: 8px;
+}
+
+details:hover {
+    background-color: #383838;
+}
+
+details>summary::-webkit-details-marker {
+    display: none;
+}
+
+details>summary {
+    list-style: none;
+}
+
+details[open] {
+    height: auto;
+    background-color: #383838;
+    border-radius: 8px;
+}
+
+details:not([open]) {
+    height: auto;
+}
+
+.editUserDetailsForm {
+    width: 100%;
+    padding: 25px;
+    background-color: #383838;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+#editProfile .editUserDetailsForm form {
+    height: 100%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+
+    .formGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+
+
+        input {
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            padding: 5px 10px;
+        }
+    }
+
+}
+
+.bioTextarea {
+    height: 40px;
+    border-radius: 8px;
+    outline: none;
+    background-color: #222;
+    color: white;
+    padding: 8px;
+    resize: none;
+    overflow: hidden;
+    border: none;
+    -moz-appearance: textfield;
+}
+
+#editProfile form {
+
+    input {
+        height: 40px;
+        border-radius: 8px;
+        outline: none;
+        background-color: #222;
+        color: white;
+        padding: 8px;
+        resize: none;
+        overflow: hidden;
+        border: none;
+    }
+}
+
+#editProfile form input[type="number"]::-webkit-inner-spin-button,
+#editProfile form input[type="number"]::-webkit-outer-spin-button {
+
+    -webkit-appearance: none;
+
+}

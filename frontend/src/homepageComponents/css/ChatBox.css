@@ -1,0 +1,109 @@
+#chatBox{
+    height: 100%;
+    width: 100%;
+}
+
+#chatBox .chatBoxHeader{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 40px;
+    background-color: #222;
+    padding: 0 12px;
+    border-radius: 8px 8px 0 0;
+
+    *{
+        margin: 0;
+    }
+}
+
+#chatBox .chatBoxChat{
+    max-width: 100%;
+    /* min-height: calc(100% - 100px); */
+    max-height: calc(100vh - 170px) !important;
+    /* position: relative; */
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+.chatBoxChat .scrollChat{
+    scrollbar-width: none;
+}
+
+#chatBox .chatBoxChat .chatInput{
+    position: fixed;
+    bottom: 50px;
+    display: flex;
+    width: 100%;
+
+    
+    input{
+        width: 87%;
+        max-width: 546px;
+        height: 40px;
+        border: 0;
+        border-radius: 35px 0 0 35px;
+        background-color: #383838;
+        padding: 2px 10px;
+        outline: none;
+        color: white;
+    }
+
+    button{
+        width: 12%;
+        max-width: 60px;
+        height: 40px;
+        padding: 0;
+        border: none;
+        border-radius: 0 35px 35px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #004ddc;
+
+        *{
+            scale: 1.2;
+            color: white;
+        }
+    }
+}
+#chat{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y:scroll ;
+    scrollbar-width: none;
+}
+.chatParent{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.my_message{
+    background-color: #004ddc;
+    padding: 8px 15px;
+    max-width: 65%;
+    min-width: 75px;
+    height: fit-content;
+    border-radius: 15px;
+
+    
+    
+    *{
+        margin: 0;
+        font-size: 15px;
+    }
+
+}
+
+.message{
+    background-color: #383838;
+    padding: 8px 15px;
+    max-width: 65%;
+    min-width: 60px;
+    border-radius: 15px;
+
+    *{
+        margin: 0;
+        font-size: 15px;
+    }
+}
