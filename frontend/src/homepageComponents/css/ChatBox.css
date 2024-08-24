@@ -8,22 +8,22 @@
     align-items: center;
     gap: 15px;
     height: 40px;
-    background-color: #222;
+    /* background-color: #222; */
     padding: 0 12px;
     border-radius: 8px 8px 0 0;
 
     *{
         margin: 0;
+        color: white;
     }
 }
 
 #chatBox .chatBoxChat{
     max-width: 100%;
-    /* min-height: calc(100% - 100px); */
     max-height: calc(100vh - 170px) !important;
-    /* position: relative; */
     overflow-y: scroll;
     scrollbar-width: none;
+    position: relative;
 }
 .chatBoxChat .scrollChat{
     scrollbar-width: none;
@@ -31,9 +31,11 @@
 
 #chatBox .chatBoxChat .chatInput{
     position: fixed;
-    bottom: 50px;
+    bottom: 52px;
     display: flex;
     width: 100%;
+
+    
 
     
     input{

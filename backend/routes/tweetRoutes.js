@@ -77,6 +77,35 @@ tweetRouter.get('/tweets', async (req, res) => {
         res.status(500).json({ message: err.message })
     }
 })
+
+// Get tweets from users that admin is following
+tweetRouter.get('/followingtweets',authentication,async(req,res)=>{
+    try {
+        const admin = await User.findOne({'_id': req.user._id}).select({password: 0})
+        const tweets = await Tweet.find({author: {$in : admin.following}}).populate({
+            path: 'author', select: {password: 0}
+        }).populate({
+            path: 'replyingTo',
+            populate: {
+                path: 'author',
+                select: {password: 0}
+            }
+        }).populate({
+            path: 'originalTweet',
+            populate:{
+                path: 'author',
+                select: {password: 0}
+            }
+        })
+        res.status(200).json({message: "Tweets from the user's following", tweets: tweets})
+
+
+    } catch (error) {
+        return res.status(500).json({error})
+        
+    }
+})
+
 // Like a tweet
 tweetRouter.put('/like/:id', authentication, async (req, res) => {
     try {

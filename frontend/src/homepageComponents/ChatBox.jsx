@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import './css/ChatBox.css';
 import { useEffect, useRef, useState } from 'react';
 import { io } from 'socket.io-client';
@@ -81,8 +81,8 @@ const ChatBox = () => {
                         <i className="fa-solid fa-arrow-left"></i>
                     </span>
                     <span className='d-flex align-items-center gap-3'>
-                        <img src={chatUser.userDetails && chatUser.userDetails.profileImg} height={'40px'} width={'40px'} style={{ borderRadius: '100%', objectFit: 'cover' }} alt="" />
-                        <h4>{chatUser.name || ' '}</h4>
+                    <Link className='text-decoration-none' to={`/app/users/${chatUser._id}`}><img src={chatUser.userDetails && chatUser.userDetails.profileImg} height={'40px'} width={'40px'} style={{ borderRadius: '100%', objectFit: 'cover' }} alt="" /></Link>
+                        <h4><Link className='text-decoration-none' to={`/app/users/${chatUser._id}`}>{chatUser.name || ' '}</Link></h4>
                     </span>
                 </div>
                 <div className="chatBoxChat">

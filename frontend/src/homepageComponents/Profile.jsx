@@ -19,6 +19,7 @@ const Profile = () => {
     let [loading, setloading] = useState(false)
     let [profileImg, setprofileImg] = useState(null)
     let [coverImg, setcoverImg] = useState(null)
+    let [isPhotoOpen, setisPhotoOpen] = useState(false)
     // Open edit modals
     let [showProfileImageModal, setshowProfileImageModal] = useState(false)
     let [showCoverImageModal, setshowCoverImageModal] = useState(false)
@@ -37,7 +38,7 @@ const Profile = () => {
             .then((res) => {
                 setuserPosts(res.data.tweets)
                 setuserInfo(res.data.user)
-                dispatch(login({user: res.data.user, token: token}))
+                dispatch(login({ user: res.data.user, token: token }))
                 setloading(false)
             })
             .catch((err) => {
@@ -45,12 +46,12 @@ const Profile = () => {
             })
     }
 
-    function getUserInfo(){
+    function getUserInfo() {
         axios.get(`${API_BASE_URL}/api/user/userinfo/${admin._id}`)
-        .then((res)=>{
-            setuserInfo(res.data.user)
-        })
-        .catch((err)=>{})
+            .then((res) => {
+                setuserInfo(res.data.user)
+            })
+            .catch((err) => { })
     }
 
     // Functions to edit user
@@ -127,7 +128,7 @@ const Profile = () => {
     if (!userPosts[0]) {
         return <div className="profileLoader">
             <LoadingSpinner />
-            <p>Loading...</p>
+            <p>Loading</p>
         </div>
     } else {
         return (
@@ -147,7 +148,7 @@ const Profile = () => {
                     <div id="profileImgSection" className='mb-0'>
                         <div className="coverImg">
                             <img src={userInfo.userDetails ? userInfo.userDetails.coverImg : ""} alt="user's_cover_img" />
-                            <div className="username">
+                            <div className="username w-50">
                                 <h4>{userInfo.name}</h4>
                             </div>
                             <button onClick={openEditCoverModal} className="editCoverImageBtn">
@@ -207,7 +208,7 @@ const Profile = () => {
                         {profileBody === "Followings" ? <div id='userFollowings'>
                             {userInfo.following.map((following) => {
                                 return (
-                                    <div key={following._id} className='d-flex align-items-center justify-content-between'>
+                                    <div key={following._id} className='d-flex align-items-center justify-content-between mb-2'>
                                         <span className='d-flex align-items-center gap-2'>
                                             <img src={following.userDetails.profileImg} alt="" style={{ height: '50px', width: '50px', objectFit: 'cover', borderRadius: '200px' }} />
                                             {following.name}

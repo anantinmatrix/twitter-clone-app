@@ -11,6 +11,7 @@ import SingleTweetPage from '../homepageComponents/SingleTweetPage.jsx';
 import EditProfile from '../homepageComponents/EditProfile.jsx';
 import Chatroom from '../homepageComponents/Chatroom.jsx';
 import ChatBox from '../homepageComponents/ChatBox.jsx';
+import FollowingSection from '../homepageComponents/FollowingSection.jsx';
 
 
 
@@ -60,6 +61,7 @@ const Homepage = () => {
                     <Routes path='/*'>
                         <Route path='/' element={<Home />} />
                         <Route path={'/home'} element={<Home />} />
+                        <Route path='/followingtweets' element={<Home/>}/>
                         <Route path='/notifications' element={<AppNotifications />} />
                         <Route path={`/users/:id`} element={<User/>}/>
                         <Route path='/profile' element={<Profile/>}/>

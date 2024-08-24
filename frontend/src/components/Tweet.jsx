@@ -9,6 +9,7 @@ import { showNotification } from '../redux/slices/notificationSlice';
 import ReplyTweet from './ReplyTweet';
 import DeleteModal from './DeleteModal';
 import RetweetModal from './RetweetModal';
+import ReportModal from './ReportModal';
 
 
 
@@ -19,6 +20,7 @@ const Tweet = ({ post, updatePosts }) => {
     let [replyModal, setreplyModal] = useState(false);
     let [showRetweetModal, setshowRetweetModal] = useState(false)
     let [showDeleteModal, setshowDeleteModal] = useState(false);
+    let [showReportModal, setshowReportModal] = useState(false)
     let [userInfo, setuserInfo] = useState(null)
     let [isTweetSaved, setisTweetSaved] = useState(false)
     let [postLike, setpostLike] = useState(false)
@@ -149,6 +151,15 @@ const Tweet = ({ post, updatePosts }) => {
             dispatch(showNotification({ type: 'failed', content: `Couldn't delete this tweet` }))
         }
     }
+
+    // Report a Tweet
+    function openReportModal(){
+        setshowReportModal(!showReportModal)
+    }
+
+    function reportTweet(){
+        dispatch(showNotification({type:'success', content: "Reported a Tweet"}))
+    }
     // 
 
 
@@ -228,7 +239,7 @@ const Tweet = ({ post, updatePosts }) => {
                                 <button ref={dropdownRef} id='tweetOptions' onClick={(e) => { toggleOptions(); propagation(e) }}><img src="/options.svg" alt="" /></button>
                                 <div className={showOptions ? `dropdownMenu` : 'hide'}>
                                     <ul onClick={propagation}>
-                                        <li>Report</li>
+                                        <li onClick={openReportModal}>Report</li>
                                         {tweet.author._id === admin._id ? <li onClick={openDeleteModal}>Delete</li> : null}
                                     </ul>
                                 </div>
@@ -290,6 +301,11 @@ const Tweet = ({ post, updatePosts }) => {
                 post={tweet}
                 closeModalFunction={() => setshowRetweetModal(false)}
                 updateFunction={() => { updatePosts(); setretweetCount(retweetCount + 1) }}
+            />
+            <ReportModal
+                show={showReportModal}
+                closeFunc={()=> setshowReportModal(false)}
+                reportFunc={reportTweet}
             />
         </>
     )

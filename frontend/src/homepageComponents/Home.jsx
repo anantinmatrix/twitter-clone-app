@@ -2,18 +2,23 @@ import axios from 'axios';
 import Tweet from '../components/Tweet';
 import './css/Home.css'
 import { API_BASE_URL } from '../env';
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useCallback, useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { showNotification } from '../redux/slices/notificationSlice';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { debounce } from 'lodash';
 
 const HomepageForYouFeed = () => {
     let [content, setcontent] = useState('')
     let [file, setfile] = useState('')
     let [previewFileURL, setpreviewFileURL] = useState('')
     let [fetchedPosts, setfetchedPosts] = useState([])
+    let [followingPosts, setfollowingPosts] = useState([])
     let [loading, setloading] = useState(false)
+    let [postLoader, setpostLoader] = useState(false)
+    let [followingPostLoader, setfollowingPostLoader] = useState(false)
+    let [isOnFollowingPage, setisOnFollowingPage] = useState(false)
 
 
     const loginSelector = useSelector((state) => state.loginSlice)
@@ -21,7 +26,7 @@ const HomepageForYouFeed = () => {
     const token = loginSelector.token;
     const loggedInUser = JSON.parse(localStorage.getItem('user'));
     const navigate = useNavigate()
-
+    const parameters = useParams()
 
 
     // Tweet posting functions
@@ -57,15 +62,31 @@ const HomepageForYouFeed = () => {
     }
     // 
     // Getting all the tweets from the server
-    const getPosts = () => {
+    const getPosts = useCallback(() => {
+        setpostLoader(true)
         axios.get(`${API_BASE_URL}/api/tweet/tweets`)
             .then((res) => {
                 setfetchedPosts(res.data.tweets)
+                setpostLoader(false)
             })
             .catch((err) => {
                 dispatch(showNotification({ type: 'failed', content: err.response.data.message }))
+                setpostLoader(false)
             })
-    }
+    },[dispatch])
+
+    const getFollowingPosts = useCallback(() =>{
+        setfollowingPostLoader(true)
+        axios.get(`${API_BASE_URL}/api/tweet/followingtweets`, { headers: { 'Authorization': `Bearer ${token}` } })
+            .then((res) => {
+                setfollowingPosts(res.data.tweets)
+                setfollowingPostLoader(false)
+            })
+            .catch((err) => {
+                dispatch(showNotification({ type: 'failed', content: "Failed loading posts" }))
+                setfollowingPostLoader(false)
+            })
+    },[token,dispatch])
 
     const textAreaFunction = (e) => {
         e.target.style.height = '50px';
@@ -76,19 +97,25 @@ const HomepageForYouFeed = () => {
 
 
     useEffect(() => {
-        getPosts()
-    }, [])
+            getPosts()
+
+            if(parameters['*']=== 'followingtweets'){
+                getFollowingPosts()
+            }
+        
+    }, [parameters])
+
 
     return (
         <>
             <div id='home' className=' p-0'>
                 <div id="homefeeds">
                     <div id="homefeedPages">
-                        <div className="forYouSection">
+                        <div onClick={() => navigate('/app/home')} className="forYouSection">
                             <h6>For You</h6>
                         </div>
-                        <div className="communitiesSection">
-                            <h6>Communities</h6>
+                        <div onClick={() => navigate('/app/followingtweets')} className="communitiesSection">
+                            <h6>Followings</h6>
                         </div>
                     </div>
                 </div>
@@ -122,21 +149,43 @@ const HomepageForYouFeed = () => {
                         </form>
                     </div>
                 </div>
-                <div className="tweets container p-0">
-                    {fetchedPosts.map((post, index) => {
-                        return (
+                {parameters['*'] === 'home' || parameters['*'] === '' ? <div>
+                    {postLoader ? <div className='homeTweetsLoader'><LoadingSpinner />Loading Tweets</div>
+                        :
+                        <div className="tweets container p-0">
+                            {fetchedPosts.map((post, index) => {
+                                return (
 
-                            <div key={post._id}>
-                                <Tweet post={post} updatePosts={getPosts} />
-                            </div>
+                                    <div key={post._id}>
+                                        <Tweet post={post} updatePosts={getPosts} />
+                                    </div>
 
-                        )
-                    })}
-
-                </div>
+                                )
+                            })}
+                        </div>
+                    }
+                </div> : null}
+                {parameters['*'] === 'followingtweets' ? <div>
+                    <h4>Followings :</h4>
+                    {followingPostLoader ? <div className='homeTweetsLoader'>
+                        <LoadingSpinner />Loading
+                    </div> :
+                        <div className='followingPosts'>
+                            {followingPosts.map((post, index) => {
+                                return (
+                                    <div key={post._id}>
+                                        <Tweet post={post} updatePosts={getFollowingPosts} />
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    }
+                </div> : null}
             </div>
         </>
+
     )
+
 }
 
 export default HomepageForYouFeed;
