@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './css/NewTweet.css'
 import axios from 'axios';
 import { API_BASE_URL } from '../env';
@@ -83,9 +83,9 @@ const Tweet = ({ post, updatePosts }) => {
         // e.propagation()
         setpostLike(!postLike)
         if (postLike) {
-            setlikeCounts((prev)=> prev - 1)
+            setlikeCounts((prev) => prev - 1)
         } else {
-            setlikeCounts((prev)=> prev + 1)
+            setlikeCounts((prev) => prev + 1)
         }
         try {
             axios.put(`${API_BASE_URL}/api/tweet/like/${tweet._id}`, {}, { headers: { 'Authorization': `Bearer ${token}` } })
@@ -153,29 +153,29 @@ const Tweet = ({ post, updatePosts }) => {
     }
 
     // Report a Tweet
-    function openReportModal(){
+    function openReportModal() {
         setshowReportModal(!showReportModal)
     }
 
-    function reportTweet(){
-        dispatch(showNotification({type:'success', content: "Reported a Tweet"}))
+    function reportTweet() {
+        dispatch(showNotification({ type: 'success', content: "Reported a Tweet" }))
     }
     // 
-
+            // function to fetch tweet's user information when the component is re-rendered
+            const getUserInfo = useCallback(()=> {
+                axios.get(`${API_BASE_URL}/api/user/userinfo/${admin._id}`)
+                    .then((res) => {
+                        setuserInfo(res.data.user)
+                    })
+                    .catch((err) => {
+    
+                    })
+            },[setuserInfo,userInfo])
 
 
     // Functions to execute when the page is re-rendered
     useEffect(() => {
-        // function to fetch tweet's user information when the component is re-rendered
-        function getUserInfo() {
-            axios.get(`${API_BASE_URL}/api/user/userinfo/${admin._id}`)
-                .then((res) => {
-                    setuserInfo(res.data.user)
-                })
-                .catch((err) => {
 
-                })
-        }
 
         // Function to check if the tweet's media an image or video
         function mimetypeChecker() {
@@ -191,7 +191,7 @@ const Tweet = ({ post, updatePosts }) => {
             }
         }
         // Executing above functions orderly
-        getUserInfo()
+        setuserInfo(admin)
         mimetypeChecker()
     }, [])
 
@@ -304,7 +304,7 @@ const Tweet = ({ post, updatePosts }) => {
             />
             <ReportModal
                 show={showReportModal}
-                closeFunc={()=> setshowReportModal(false)}
+                closeFunc={() => setshowReportModal(false)}
                 reportFunc={reportTweet}
             />
         </>
