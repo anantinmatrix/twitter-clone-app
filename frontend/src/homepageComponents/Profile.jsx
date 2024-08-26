@@ -50,8 +50,12 @@ const Profile = () => {
         axios.get(`${API_BASE_URL}/api/user/userinfo/${admin._id}`)
             .then((res) => {
                 setuserInfo(res.data.user)
+                setloading(false)
             })
-            .catch((err) => { })
+            .catch((err) => {
+                setloading(false)
+                dispatch(showNotification({ type: 'failed', content: "Error fetching the user" }))
+            })
     }
 
     // Functions to edit user
