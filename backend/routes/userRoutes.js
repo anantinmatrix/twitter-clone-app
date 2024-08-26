@@ -30,8 +30,8 @@ userRouter.post('/register', async (req, res) => {
             username: username,
             password: hashedPassword,
             userDetails: {
-                profileImg: 'http://localhost:5000/assets/default_user.jpg',
-                coverImg: 'http://localhost:5000/assets/defualt_cover_img.jpg'
+                profileImg: `${process.env.BACKEND_URL}/assets/default_user.jpg`,
+                coverImg: `${process.env.BACKEND_URL}/assets/defualt_cover_img.jpg`
             }
         })
         newUser.save()
