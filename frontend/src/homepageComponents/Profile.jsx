@@ -37,7 +37,7 @@ const Profile = () => {
         axios.get(`${API_BASE_URL}/api/user/userposts/${admin._id}`)
             .then((res) => {
                 setuserPosts(res.data.tweets)
-                setuserInfo(res.data.user)
+                // setuserInfo(res.data.user)
                 dispatch(login({ user: res.data.user, token: token }))
                 setloading(false)
             })
