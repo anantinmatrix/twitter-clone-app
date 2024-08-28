@@ -43,6 +43,7 @@ const Profile = () => {
             })
             .catch((err) => {
                 console.log(err)
+                setloading(false)
             })
     }
 
@@ -127,7 +128,7 @@ const Profile = () => {
     // 
     // HTML Return starts from here
     // 
-    if (!userPosts[0]) {
+    if (!userPosts) {
         return <div className="profileLoader">
             <LoadingSpinner />
             <p>Loading</p>
