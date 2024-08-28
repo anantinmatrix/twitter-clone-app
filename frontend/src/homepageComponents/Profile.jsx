@@ -108,8 +108,8 @@ const Profile = () => {
     // 
 
     useEffect(() => {
-        getUserInfo()
         getUserPosts()
+        getUserInfo()
         setloading(true)
         document.body.style.overflowY = 'scroll'
     }, [])
@@ -124,7 +124,7 @@ const Profile = () => {
 
 
 
-
+console.log(userInfo)
 
     // 
     // HTML Return starts from here
