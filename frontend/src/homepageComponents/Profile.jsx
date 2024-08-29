@@ -43,15 +43,20 @@ const Profile = () => {
             })
             .catch((err) => {
                 console.log(err)
+                setloading(false)
             })
     }
 
     function getUserInfo() {
         axios.get(`${API_BASE_URL}/api/user/userinfo/${admin._id}`)
             .then((res) => {
-                setuserInfo(res.data.user)
+                // setuserInfo(res.data.user)
+                setloading(false)
             })
-            .catch((err) => { })
+            .catch((err) => {
+                setloading(false)
+                dispatch(showNotification({ type: 'failed', content: "Error fetching the user" }))
+            })
     }
 
     // Functions to edit user
@@ -104,8 +109,8 @@ const Profile = () => {
     // 
 
     useEffect(() => {
-        getUserInfo()
         getUserPosts()
+        getUserInfo()
         setloading(true)
         document.body.style.overflowY = 'scroll'
     }, [])
@@ -120,12 +125,10 @@ const Profile = () => {
 
 
 
-
-
     // 
     // HTML Return starts from here
     // 
-    if (!userPosts[0]) {
+    if (!userPosts) {
         return <div className="profileLoader">
             <LoadingSpinner />
             <p>Loading</p>

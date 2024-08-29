@@ -85,13 +85,13 @@ function Login() {
                                 your data safe and give you full control over who sees your
                                 content.
                             </p>
-                            <button className="loginGoogleBtn mt-3 mb-3">
+{/*                             <button className="loginGoogleBtn mt-3 mb-3">
                                 <span>
                                     <img src="/google_login_icon.png" alt="google_icon" height={'26px'} />
                                 </span>
                                 <span>Login with Google</span>
                             </button>
-                            <h6 className="loginTxtOr">Or</h6>
+                            <h6 className="loginTxtOr">Or</h6> */}
                             <div className="formBody">
                                 <form onSubmit={handleLogin}>
                                     <div className="form-group mb-3">
