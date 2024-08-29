@@ -1,6 +1,6 @@
 import mongoose, { mongo } from "mongoose";
-const date = new Date();
-const time = `${date.getHours()}:${date.getMinutes()}`;
+// const date = new Date();
+// const time = `${date.getHours()}:${date.getMinutes()}`;
 
 const messageSchema = new mongoose.Schema({
     senderId: {
@@ -21,10 +21,10 @@ const messageSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    time:{
-        type: String,
-        default: time
-    }
+    // time:{
+    //     type: String,
+    //     default: time
+    // }
 
 },{timestamps: true})
 
