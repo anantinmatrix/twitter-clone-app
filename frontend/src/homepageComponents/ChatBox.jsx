@@ -94,7 +94,7 @@ const ChatBox = () => {
                                     <div key={index} className="chatParent" style={chat.senderId === admin._id ? { justifyContent: 'end' } : { justifyContent: 'start' }}>
                                         <div key={index} className={chat.senderId === admin._id ? 'my_message' : 'message'} >
                                             <p className='text-start mb-2'>{chat.content}</p>
-                                            <p className='text-end '>{chat.time || time}</p>
+                                            <p className='text-end '>{chat.time}</p>
                                         </div>
                                     </div>
                                 )
