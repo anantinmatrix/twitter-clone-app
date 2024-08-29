@@ -21,10 +21,9 @@ const messageSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // time:{
-    //     type: String,
-    //     default: time
-    // }
+    time:{
+        type: String,
+    }
 
 },{timestamps: true})
 
