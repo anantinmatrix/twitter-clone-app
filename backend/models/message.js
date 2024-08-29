@@ -12,20 +12,29 @@ const messageSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'usermodel',
         required: true,
-        
+
     },
-    members:{
+    members: {
         type: Array
     },
     content: {
         type: String,
         required: true
     },
-    time:{
+    time: {
         type: String,
+        default: () => {
+            const date = new Date();
+            return date.toLocaleString("en-IN", {
+                timeZone: "Asia/Kolkata",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+            })
+        }
     }
 
-},{timestamps: true})
+}, { timestamps: true })
 
 const Messages = new mongoose.model('messagemodel', messageSchema)
 export default Messages;

@@ -79,7 +79,7 @@ io.on('connection', (socket) => {
                 receiverId: receiverId,
                 members: [senderId, receiverId],
                 content: content,
-                time: today
+                // time: today
             })
             console.log(message)
             const alreadyConversation = await Conversation.find({'members': {$all : [senderId, receiverId]}})
