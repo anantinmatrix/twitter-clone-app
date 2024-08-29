@@ -20,6 +20,7 @@ const Chatroom = () => {
         try {
             axios.get(`${API_BASE_URL}/api/conversation`, { headers: { Authorization: `Bearer ${token}` } })
                 .then((res) => {
+                    setloading(false)
                     let a = res.data;
                     a.map((conv) => {
                         let mem = conv.members
@@ -48,13 +49,14 @@ const Chatroom = () => {
     const handleSearch = debounce(async (name) => {
         axios.post(`${API_BASE_URL}/api/user/searchuser`, { name: name })
             .then((res) => {
+                // console.log(res.data.user)
                 let responseArray = res.data.user
                 let filteredArray = responseArray.filter((user) => user._id !== admin._id)
                 setuserList(filteredArray)
-
+                setloading(false)
             })
             .catch((err) => {
-
+                setloading(false)
             })
     }, 500)
 
@@ -66,6 +68,8 @@ const Chatroom = () => {
     useState(() => {
         loadConversations()
     }, [])
+
+    console.log(userList)
 
 
     return (

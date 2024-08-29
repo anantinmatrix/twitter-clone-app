@@ -28,6 +28,8 @@ const HomepageForYouFeed = () => {
     const navigate = useNavigate()
     const parameters = useParams()
 
+    console.log(loggedInUser)
+
 
     // Tweet posting functions
     const handleFileChange = (e) => {
@@ -122,7 +124,7 @@ const HomepageForYouFeed = () => {
                 <div id="addThoughtForm" className='mb-3'>
                     <div className="image">
                         <img
-                            src={`${loggedInUser.userDetails.profileImg}`}
+                            src={loggedInUser ?`${loggedInUser.userDetails.profileImg}`: null}
                             alt="user_img"
                         />
                     </div>
